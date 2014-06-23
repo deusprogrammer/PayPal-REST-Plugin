@@ -1,17 +1,22 @@
 package com.trinary.paypal.payment.payer
 
-class BillingAddress extends PayerAddress {
-    BillingAddress() {}
+import java.util.Map;
 
-    BillingAddress(String line1, String line2, String city, String countryCode, String postalCode, String state, String phone) {
+import com.trinary.Convertable
+
+class BillingAddress extends PayerAddress {
+    public BillingAddress() {}
+
+    public BillingAddress(String line1, String line2, String city, String countryCode, String postalCode, String state, String phone) {
         super(line1, line2, city, countryCode, postalCode, state, phone)
     }
 
-    BillingAddress(Map map) {
+    public BillingAddress(Map map) {
         super(map)
     }
 
-    Map buildMap() {
+    @Override
+    public Map buildMap() {
         return [
             line1: line1,
             line2: line2,

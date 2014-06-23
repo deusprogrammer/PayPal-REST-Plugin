@@ -4,20 +4,20 @@ class OauthAccessToken {
     protected String value
     protected String type
     protected Date   expires
+	
+	public OauthAccessToken() {}
 
-    OauthAccessToken() {}
-
-    OauthAccessToken(String value, String type, Date expires) {
+    public OauthAccessToken(String value, String type, Date expires) {
         this.value = value
         this.type = type
         this.expires = expires
     }
 
-    boolean isExpired() {
+    public boolean isExpired() {
         return new Date() > expires
     }
 
-    String toString() {
+    public String toString() {
         return "${type} ${value}"
     }
 }

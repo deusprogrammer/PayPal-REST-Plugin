@@ -1,7 +1,8 @@
 package com.trinary.paypal.test
 
-import com.trinary.paypal.Payable
-import com.trinary.paypal.payment.Currency
+import com.trinary.paypal.*
+import com.trinary.paypal.payment.*
+
 
 class OrderItem implements Payable {
 	protected String description
@@ -10,41 +11,52 @@ class OrderItem implements Payable {
 	protected Integer quantity
 	protected Currency currency
 
-	Double getPrice() {
+	@Override
+	public Double getPrice() {
 		return price
 	}
 
-	Double getTaxRate() {
+	@Override
+	public Double getTaxRate() {
 		return taxRate
 	}
 
-	Integer getQuantity() {
+	@Override
+	public Integer getQuantity() {
 		return quantity
 	}
 
-	Currency getCurrency() {
+	@Override
+	public Currency getCurrency() {
 		return currency
 	}
 
-	String getDescription() {
+	@Override
+	public String getDescription() {
 		return description
 	}
 
-	String getPaymentId() {
+	@Override
+	public String getPaymentId() {
+		return null
+	}
+	
+	@Override
+	public String getTransactionId() {
 		return null
 	}
 
-	String getTransactionId() {
-		return null
+	@Override
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId		
 	}
+	
+	@Override
+	public void setTransactionId(String transactionId) {}
 
-	void setPaymentId(String paymentId) {
-		this.paymentId = paymentId
-	}
-
-	void setTransactionId(String transactionId) {}
-
-	List<Payable> getItems() {
+	@Override
+	public ArrayList<Payable> getItems() {
 		return []
 	}
+
 }

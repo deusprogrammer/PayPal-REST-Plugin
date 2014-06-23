@@ -4,11 +4,12 @@ import com.trinary.paypal.error.PayPalError
 
 class PayPalException extends Exception {
 	protected PayPalError map
-
+	
 	PayPalException(String message) {
 		super(message)
+		this.map = null
 	}
-
+	
 	PayPalException(String message, PayPalError map) {
 		super(message)
 		this.map = map

@@ -7,9 +7,11 @@ enum CreditCardType {
 
     protected String value
 
-    private CreditCardType(String value) {
+    public CreditCardType(String value) {
         this.value = value
     }
 
-    String toString() { value }
+    public String toString() {
+        return value
+    }
 }

@@ -6,9 +6,11 @@ enum PaymentMethod {
 
     String value
 
-    private PaymentMethod(String value) {
+    public PaymentMethod(String value) {
         this.value = value
     }
 
-    String toString() { value }
+    public String toString() {
+        return value
+    }
 }

@@ -1,38 +1,68 @@
 package com.trinary.paypal.test
 
-import com.trinary.paypal.Orderable
-import com.trinary.paypal.Payable
-import com.trinary.paypal.payment.Currency
+import com.trinary.paypal.*
+import com.trinary.paypal.payment.*
 
 class Order implements Orderable {
 	protected Currency currency
 	protected String description
-	String paymentId
-	String transactionId
+	protected String paymentId
+	protected String transactionId
 	protected Double taxRate
-	protected List<OrderItem> items = []
-
-	Double getPrice() {
-		items.sum { OrderItem item -> item.price }
+	protected ArrayList<OrderItem> items = new ArrayList<OrderItem>()
+	
+	@Override
+	public Double getPrice() {
+		Double total = 0.0
+		items.each { OrderItem item ->
+			total += item.price
+		}
+		
+		return total
 	}
 
-	Double getTaxRate() {
+	@Override
+	public Double getTaxRate() {
 		return taxRate
 	}
 
-	Integer getQuantity() {
+	@Override
+	public Integer getQuantity() {
 		return 0
 	}
 
-	Currency getCurrency() {
+	@Override
+	public Currency getCurrency() {
 		return currency
 	}
 
-	String getDescription() {
+	@Override
+	public String getDescription() {
 		return description
 	}
 
-	List<Payable> getItems() {
+	@Override
+	public String getPaymentId() {
+		return paymentId;
+	}
+	
+	@Override
+	public String getTransactionId() {
+		return transactionId
+	}
+
+	@Override
+	public void setPaymentId(String paymentId) {
+		this.paymentId = paymentId
+	}
+	
+	@Override
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId
+	}
+
+	@Override
+	public ArrayList<Payable> getItems() {
 		return items
 	}
 }

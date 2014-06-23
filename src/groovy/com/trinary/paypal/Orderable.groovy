@@ -1,17 +1,20 @@
 package com.trinary.paypal
 
-import com.trinary.paypal.payment.Currency
+import java.util.ArrayList;
+
+import com.trinary.paypal.payment.*
+import com.trinary.paypal.test.OrderItem;
 
 interface Orderable {
-	Double getTaxRate()
-	Currency getCurrency()
-	String getDescription()
-
-	String getPaymentId()
-	void setPaymentId(String paymentId)
-
-	String getTransactionId()
-	void setTransactionId(String transactionId)
-
-	List<Payable> getItems()
+    public Double getTaxRate()
+    public Currency getCurrency()
+    public String getDescription()
+	
+	public String getPaymentId()
+	public void setPaymentId(String paymentId)
+	
+	public String getTransactionId()
+	public void setTransactionId(String transactionId)
+	
+	public ArrayList<Payable> getItems()
 }

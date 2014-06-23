@@ -1,5 +1,5 @@
 package com.trinary
 
 interface Convertable {
-    Map buildMap()
+    public Map buildMap()
 }

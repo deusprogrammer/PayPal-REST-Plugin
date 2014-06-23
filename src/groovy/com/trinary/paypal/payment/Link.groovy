@@ -5,13 +5,13 @@ class Link {
     protected String rel
     protected String method
 
-    Link(String href, String rel, String method) {
+    public Link(String href, String rel, String method) {
         this.href   = href
         this.rel    = rel
         this.method = method
     }
 
-    Link(Map map) {
+    public Link(Map map) {
         this.href   = map["href"] ?: href
         this.rel    = map["rel"] ?: rel
         this.method = map["method"] ?: method

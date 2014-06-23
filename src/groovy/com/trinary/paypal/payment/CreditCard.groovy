@@ -1,5 +1,7 @@
 package com.trinary.paypal.payment
 
+import java.util.Map;
+
 import com.trinary.Convertable
 import com.trinary.paypal.payment.payer.BillingAddress
 
@@ -10,9 +12,9 @@ class CreditCard extends FundingInstrument implements Convertable {
     protected String lastName
     protected BillingAddress billingAddress
 
-    CreditCard() {}
+    public CreditCard() {}
 
-    CreditCard(String id, String payerId, String number, String cvv2, CreditCardType type, Integer expireMonth, Integer expireYear, String firstName, String lastName, BillingAddress billingAddress) {
+    public CreditCard(String id, String payerId, String number, String cvv2, CreditCardType type, Integer expireMonth, Integer expireYear, String firstName, String lastName, BillingAddress billingAddress) {
         super(id, payerId, type, expireMonth, expireYear)
         this.number = number
         this.cvv2 = cvv2
@@ -21,7 +23,7 @@ class CreditCard extends FundingInstrument implements Convertable {
         this.billingAddress = billingAddress
     }
 
-    CreditCard(Map map) {
+    public CreditCard(Map map) {
         super(map)
         this.number = map["number"] ?: number
         this.cvv2 = map["cvv2"] ?: cvv2
@@ -30,7 +32,8 @@ class CreditCard extends FundingInstrument implements Convertable {
         this.billingAddress = map["billingAddress"] ?: billingAddress
     }
 
-    Map buildMap() {
+    @Override
+    public Map buildMap() {
         return [
             credit_card: [
                 id: id,

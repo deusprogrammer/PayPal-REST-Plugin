@@ -1,5 +1,7 @@
 package com.trinary.paypal.payment.payer
 
+import java.util.Map
+
 import com.trinary.Convertable
 
 class PayerInfo implements Convertable {
@@ -10,9 +12,9 @@ class PayerInfo implements Convertable {
     protected String phone
     protected ShippingAddress shippingAddress
 
-    PayerInfo() {}
+    public PayerInfo() {}
 
-    PayerInfo(String email, String firstName, String lastName, String payerId, String phone, ShippingAddress shippingAddress) {
+    public PayerInfo(String email, String firstName, String lastName, String payerId, String phone, ShippingAddress shippingAddress) {
         this.email = email
         this.firstName = firstName
         this.lastName = lastName
@@ -21,7 +23,7 @@ class PayerInfo implements Convertable {
         this.shippingAddress = shippingAddress
     }
 
-    PayerInfo(Map map) {
+    public PayerInfo(Map map) {
         this.email = map["email"] ?: email
         this.firstName = map["firstName"] ?: firstName
         this.lastName = map["lastName"] ?: lastName
@@ -30,7 +32,8 @@ class PayerInfo implements Convertable {
         this.shippingAddress = map["shippingAddress"] ?: shippingAddress
     }
 
-    Map buildMap() {
+    @Override
+    public Map buildMap() {
         return [
             email: email,
             first_name: firstName,

@@ -1,21 +1,25 @@
 package com.trinary.paypal.payment.payer
 
-import com.trinary.paypal.payment.FundingInstrument
-import com.trinary.paypal.payment.PaymentMethod
+import java.util.ArrayList
+import java.util.Map
+
+import com.trinary.Convertable
+import com.trinary.paypal.payment.*
 
 class CreditCardPayer extends Payer {
-    protected List<FundingInstrument> fundingInstruments = []
-    protected PayerInfo payerInfo
+    protected ArrayList<FundingInstrument> fundingInstruments = new ArrayList<FundingInstrument>()
+	protected PayerInfo payerInfo
 
-    CreditCardPayer() {
+    public CreditCardPayer() {
         paymentMethod = PaymentMethod.CREDIT_CARD
     }
 
-    void addFundingInstrument(FundingInstrument fundingInstrument) {
+    public void addFundingInstrument(FundingInstrument fundingInstrument) {
         fundingInstruments.add(fundingInstrument)
     }
 
-    Map buildMap() {
+    @Override
+    public Map buildMap() {
         return [
             payment_method: paymentMethod.toString(),
             funding_instruments: fundingInstruments.collect { FundingInstrument fundingInstrument ->

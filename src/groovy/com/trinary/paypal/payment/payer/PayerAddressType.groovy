@@ -7,9 +7,11 @@ enum PayerAddressType {
 
     protected String value
 
-    private PayerAddressType(String value) {
+    public PayerAddressType(String value) {
         this.value = value
     }
 
-    String toString() { value }
+    public String toString() {
+        return value
+    }
 }

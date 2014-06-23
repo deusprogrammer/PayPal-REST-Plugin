@@ -3,6 +3,3 @@
 *.class
 *.zip
 *~
-plugin.xml
-/web-app
-*.log

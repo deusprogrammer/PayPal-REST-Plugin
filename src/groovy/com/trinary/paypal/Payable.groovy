@@ -1,10 +1,13 @@
 package com.trinary.paypal
 
-import com.trinary.paypal.payment.Currency
+import java.util.ArrayList;
+
+import com.trinary.paypal.payment.*
+import com.trinary.paypal.test.OrderItem;
 
 interface Payable {
-    Double getPrice()
-    Integer getQuantity()
-    Currency getCurrency()
-    String getDescription()
+    public Double getPrice()
+	public Integer getQuantity()
+    public Currency getCurrency()
+    public String getDescription()
 }

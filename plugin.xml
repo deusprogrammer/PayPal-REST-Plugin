@@ -1,0 +1,13 @@
+<plugin name='pay-pal-rest' version='1.0.3' grailsVersion='2.2 &gt; *'>
+  <author>Michael C. Main</author>
+  <authorEmail>deusprogrammer@gmail.com</authorEmail>
+  <title>Grails Pay Pal REST Plugin</title>
+  <description>A plugin to simplify the PayPal REST API.
+</description>
+  <type>PayPalRESTGrailsPlugin</type>
+  <resources>
+    <resource>com.trinary.paypal.test.TestController</resource>
+    <resource>com.trinary.paypal.PaymentService</resource>
+    <resource>com.trinary.paypal.test.TestService</resource>
+  </resources>
+</plugin>
